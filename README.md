@@ -1,2 +1,24 @@
 # BigBrother
-a desktop controller via WebRTC,mostly using vite,electron and vue3.x. robotjs will be used to pass action to a controlled pc
+a desktop controller via `WebRTC`,mostly using `vite`,`electron` and `vue3.x`. `robotjs` will be used to pass action to a controlled pc
+
+> 作者可能将项目用于毕业设计
+
+##  项目背景
+
+​		远程控制是现代化互联网时代广泛应用技术，在众多领域中它不可缺少。在团队协作中 collaborate 显得格外重要。然而，人员之间并不能每次都做到一直在身边帮忙解决问题。在这样的场景下，远程桌面控制可以巧妙地化解距离问题，采用远程桌面协议(RDP)，为用户提供便利。远程桌面协议(RDP)，顾名思义是一个多通道的协议，能为用户提供远程服务。其实，很多计算机都有桌面协议，比如是Windows版本计算机等，都可实现远程服务。远程桌面是方便Windows服务器管理员对服务器进行远程管理，因此它是基于远程协议基础上实现操作的。
+
+​		目前市面上有着大量的远程控制软件，例如知名的TeamViewer，更多面向了企业用户，收费且适合团队协作。另外还有国产的向日葵，优点是可以通过手机端的app连接已绑定的PC傀儡机。不过免费的工具，往往也是有着诸多限制，例如带宽限制（可能影响画质）、绑定机数限制等等。
+
+<!-- TODO -->
+
+## 目前的需求
+- ### 主要需求
+	- 实现桌面连接，捕获傀儡机屏幕视频流
+	- 实现模拟控制，将鼠标位移、点击动作和键盘动作传递给傀儡机
+	- 实现快捷键屏蔽，全屏控制时屏蔽本机快捷键，启用傀儡机快捷键
+- ### 次要需求
+	- 制作类似App短信验证码的数字输入框
+	- 实现跨系统的控制
+	- 使用 `Xterm` 传输终端命令控制linux终端机
+
+<!-- TODO -->
