@@ -26,14 +26,12 @@ jobs:
 #       with:
 #         node-version: ${{ matrix.node-version }}
 #         cache: 'npm'
+      - uses: actions/checkout@v1
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
-        with: 
-          path: "./path/to/package.json"
         id: package-node-version
-
-      - name: Show version number
-        run: echo "name is ${{ steps.package-version.outputs.name }}"
+      - name: Show node version number
+        run: echo "Version is ${{ steps.package-node-version.outputs.version }}"
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v2
     #   with:
