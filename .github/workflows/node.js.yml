@@ -30,6 +30,8 @@ jobs:
       uses: sergeysova/jq-action@v2
       with:
         cmd: jq -n env
+    - run: ls
+    - run: pwd
     - run: jq . package.json | jq '.name'
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v2
