@@ -26,14 +26,27 @@ jobs:
 #       with:
 #         node-version: ${{ matrix.node-version }}
 #         cache: 'npm'
-    - name: Get package info
-      id: package
-      uses: codex-team/action-nodejs-package-info@v1
-    - name: Get the output
-      run: |
-        echo "name: ${{ steps.package.outputs.name }}"
-        echo "version: ${{ steps.package.outputs.version }}"
-        echo "npmjs-link: ${{ steps.package.outputs.npmjs-link }}"
+      - uses: actions/checkout@v1
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Unit Test
+        run: npm test
+
+      - name: Local action test
+        uses: ./
+        id: version
+
+      - name: Get version
+        run: echo "json is  ${{ steps.version.outputs }}"
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v2
     #   with:
