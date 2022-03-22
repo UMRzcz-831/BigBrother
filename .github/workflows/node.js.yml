@@ -30,8 +30,8 @@ jobs:
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
-      - name: Show node version number
-        run: echo ${{ steps.package-node-version.outputs.name }}
+      - name: Show package.json name
+        run: echo "name is ${{ steps.package-node-version.outputs.name }}"
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v2
     #   with:
