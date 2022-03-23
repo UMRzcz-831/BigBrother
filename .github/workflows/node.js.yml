@@ -26,14 +26,13 @@ jobs:
 #       with:
 #         node-version: ${{ matrix.node-version }}
 #         cache: 'npm'
-    - name: install jq
-      uses: sergeysova/jq-action@v2
-      id: version
-      with:
-        cmd: 'jq .version package.json -r'
-    - run: ls
-    - run: pwd
-    - run: jq . package.json | jq '.name'
+    - name: Get package info
+      id: package
+      uses: codex-team/action-nodejs-package-info@v1
+
+    - name: Get the output
+      run: echo "name ${{ steps.package.outputs.name }}"
+      working-directory: client
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v2
     #   with:
